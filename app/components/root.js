@@ -14,7 +14,7 @@ class Root extends React.Component {
    render() {
       return (
          <div>
-            <nav>
+            <nav className="navbar navbar-light fixed-top">
                <h1>Goodie Bag</h1>
                <div className="router">
                   <Link exact activeClassName="active" to="/">
@@ -28,9 +28,15 @@ class Root extends React.Component {
                   </Link>
                </div>
             </nav>
+
             <main>
+               <div className="overlay" />
                <Switch>
-                  <Route exact path="/" component={Home} />
+                  <Route
+                     exact
+                     path="/"
+                     render={pathProps => <Home {...pathProps} />}
+                  />
                   <Route
                      exact
                      path="/candies"

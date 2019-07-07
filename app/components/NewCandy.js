@@ -8,6 +8,8 @@ export default class NewCandy extends Component {
          description: '',
          quantity: '',
          imageUrl: '',
+         successAlert: true,
+         warningAlert: false,
       };
       this.onChange = this.onChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,6 +18,15 @@ export default class NewCandy extends Component {
       this.setState({
          [e.target.name]: e.target.value,
       });
+      if (this.state.name.length && this.state.description.length) {
+         this.setState({
+            warningAlert: true,
+         });
+      } else {
+         this.setState({
+            warningAlert: false,
+         });
+      }
    }
    handleSubmit(e) {
       e.preventDefault();
@@ -31,16 +42,26 @@ export default class NewCandy extends Component {
          newCandy.quantity = quantity;
       }
       this.props.createCandy(newCandy);
+      this.setState({
+         successAlert: false,
+      });
+      setTimeout(() => {
+         this.setState({
+            successAlert: true,
+         });
+         this.props.history.push('/candies');
+      }, 400);
    }
    render() {
       return (
-         <div className="container w-50">
-            <form onSubmit={this.handleSubmit}>
-               <div className="form-group row">
+         <div className="d-flex justify-content-center container mt-4 w-50 form-container">
+            <form className="mt-5 mx-auto w-85 " onSubmit={this.handleSubmit}>
+               <h1 className="m-4">Add to goodie bag</h1>
+               <div className="form-group w-100 row">
                   <label
-                     className="col-md-2"
+                     className="col-sm-2"
                      htmlFor="name"
-                     className="col-md-2"
+                     className="col-sm-2"
                   >
                      Candy Name
                   </label>
@@ -52,8 +73,8 @@ export default class NewCandy extends Component {
                      value={this.state.name}
                   />
                </div>
-               <div className="form-group row">
-                  <label className="col-md-2" htmlFor="description">
+               <div className="form-group w-100 row">
+                  <label className="col-sm-2" htmlFor="description">
                      Candy Description
                   </label>
                   <input
@@ -64,8 +85,8 @@ export default class NewCandy extends Component {
                      value={this.state.description}
                   />
                </div>
-               <div className="form-group row">
-                  <label className="col-md-2" htmlFor="quantity">
+               <div className="form-group w-100 row">
+                  <label className="col-sm-2" htmlFor="quantity">
                      Quantity
                   </label>
                   <input
@@ -76,8 +97,8 @@ export default class NewCandy extends Component {
                      value={this.state.quantity}
                   />
                </div>
-               <div className="form-group row">
-                  <label className="col-md-2" htmlFor="imageUrl">
+               <div className="form-group w-100 row">
+                  <label className="col-sm-2" htmlFor="imageUrl">
                      Image Url
                   </label>
                   <input
@@ -88,11 +109,29 @@ export default class NewCandy extends Component {
                      value={this.state.imageUrl}
                   />
                   <button
-                     className="btn btn-block btn-primary w-100"
+                     disabled={
+                        !this.state.name.length ||
+                        !this.state.description.length
+                     }
+                     className="btn btn-block btn-light w-100 mt-3"
                      type="submit"
                   >
                      Create
                   </button>
+                  <div
+                     hidden={this.state.successAlert}
+                     className="alert alert-success w-100 mt-3"
+                     role="alert"
+                  >
+                     Created Successfully!
+                  </div>
+                  <div
+                     hidden={this.state.warningAlert}
+                     className="alert alert-warning w-100 mt-3"
+                     role="alert"
+                  >
+                     Neither name nor description can be empty!
+                  </div>
                </div>
             </form>
          </div>

@@ -7,14 +7,14 @@
    box-sizing: border-box;
    font-family: arial, sans-serif;
 }
+body {
+   background: url('https://images.unsplash.com/photo-1449970324092-613ea2df94a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2853&q=80');
+   background-size: cover;
+}
 
 body::after {
-   content: '';
-   background: url('bg.jpg');
-   background-size: cover;
-   height: 140vh;
    background-repeat: repeat;
-   opacity: 0.1;
+   background-color: #fff;
    top: 0;
    left: 0;
    bottom: 0;
@@ -22,11 +22,21 @@ body::after {
    position: absolute;
    z-index: -1;
 }
-
+main {
+   margin-top: 80px;
+}
+.form-container {
+   background-color: rgba(236, 146, 221, 0.808);
+   box-shadow: 10px 10px rgba(245, 196, 237, 0.9);
+   color: white;
+}
+.w-85 {
+   width: 85%;
+}
 nav {
    align-items: center;
-   background-color: #333333;
-   color: #c0c0c0;
+   background-color: rgba(236, 146, 221, 0.808);
+   color: white;
    display: flex;
    height: 80px;
    padding: 10px;
@@ -37,6 +47,11 @@ nav {
    padding: 2%;
    letter-spacing: 0.1em;
 }
+nav {
+   opacity: 0.7;
+   position: fixed;
+   z-index: 3;
+}
 nav a,
 nav a:active {
    color: white;
@@ -44,14 +59,22 @@ nav a:active {
    margin: 0.5em;
 }
 nav a:hover {
+   color: white;
+   text-decoration: none;
    border-bottom: solid 2px white;
+}
+.home-display {
+   margin-top: 20px;
 }
 
 .active {
    border-bottom: solid 2px white;
    font-weight: 600;
 }
-
+.jum-1 {
+   background-color: rgba(236, 146, 221, 0.808);
+   box-shadow: 10px 10px rgba(245, 196, 237, 0.9);
+}
 main {
    align-items: center;
    display: flex;
@@ -61,13 +84,18 @@ main {
 .candy-container {
    display: flex;
    padding: 10px;
-   margin: 10px;
+   margin: 15px;
    text-align: center;
+   z-index: 3;
+   background-color: rgba(236, 146, 221, 0.808);
+   box-shadow: 10px 10px rgba(245, 196, 237, 0.9);
+   border-radius: 2em;
+   color: white;
 }
 .candy-container:hover {
-   background-color: #333333;
-   color: white;
-   border-radius: 2em;
+   background-color: white;
+   color: rgba(236, 146, 221);
+   box-shadow: 8px 8px rgba(248, 235, 246, 0.9);
 }
 .container {
    flex: 50%;
@@ -80,4 +108,9 @@ img {
 .single-candy-view {
    width: 45%;
    text-align: center;
+   background-color: rgba(236, 146, 221, 0.808);
+   box-shadow: 10px 10px rgba(245, 196, 237, 0.9);
+   padding: 2em;
+   border-radius: 2em;
+   color: white;
 }
