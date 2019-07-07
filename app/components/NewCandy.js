@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormField from './FormField';
 
 export default class NewCandy extends Component {
    constructor(props) {
@@ -50,60 +51,39 @@ export default class NewCandy extends Component {
             successAlert: true,
          });
          this.props.history.push('/candies');
-      }, 400);
+      }, 600);
    }
    render() {
       return (
          <div className="d-flex justify-content-center container mt-4 w-50 form-container">
             <form className="mt-5 mx-auto w-85 " onSubmit={this.handleSubmit}>
                <h1 className="m-4">Add to goodie bag</h1>
+               <FormField
+                  fieldName="name"
+                  onChange={this.onChange}
+                  value={this.state.name}
+                  label="Candy Name"
+               />
+               <FormField
+                  fieldName="description"
+                  onChange={this.onChange}
+                  value={this.state.description}
+                  label="Candy Description"
+               />
+               <FormField
+                  fieldName="quantity"
+                  onChange={this.onChange}
+                  value={this.state.quantity}
+                  label="Quantity"
+               />
+               <FormField
+                  fieldName="imageUrl"
+                  onChange={this.onChange}
+                  value={this.state.imageUrl}
+                  label="Image Url"
+               />
+
                <div className="form-group w-100 row">
-                  <label className="col-sm-2" htmlFor="name">
-                     Candy Name
-                  </label>
-                  <input
-                     className="form-control col-sm-10"
-                     onChange={this.onChange}
-                     name="name"
-                     type="text"
-                     value={this.state.name}
-                  />
-               </div>
-               <div className="form-group w-100 row">
-                  <label className="col-sm-2" htmlFor="description">
-                     Candy Description
-                  </label>
-                  <input
-                     className="form-control col-sm-10"
-                     onChange={this.onChange}
-                     name="description"
-                     type="text"
-                     value={this.state.description}
-                  />
-               </div>
-               <div className="form-group w-100 row">
-                  <label className="col-sm-2" htmlFor="quantity">
-                     Quantity
-                  </label>
-                  <input
-                     className="form-control col-sm-10"
-                     onChange={this.onChange}
-                     name="quantity"
-                     type="text"
-                     value={this.state.quantity}
-                  />
-               </div>
-               <div className="form-group w-100 row">
-                  <label className="col-sm-2" htmlFor="imageUrl">
-                     Image Url
-                  </label>
-                  <input
-                     className="form-control col-sm-10"
-                     onChange={this.onChange}
-                     name="imageUrl"
-                     type="text"
-                     value={this.state.imageUrl}
-                  />
                   <button
                      disabled={
                         !this.state.name.length ||
