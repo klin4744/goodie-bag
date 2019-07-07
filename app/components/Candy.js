@@ -23,6 +23,7 @@ export default function Candy(props) {
 
                <div className="col-sm-6">
                   <button
+                     type="button"
                      onClick={() => props.removeCandy(props.candy)}
                      className="btn btn-block btn-danger"
                   >

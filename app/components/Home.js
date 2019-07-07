@@ -8,6 +8,7 @@ export default function Home(props) {
                <h1 className="display-3">Welcome to the Goodie Bag!</h1>
                <p className="lead">A collection of goodies!</p>
                <button
+                  type="button"
                   onClick={() => props.history.push('/candies')}
                   className="btn btn-outline-light "
                >

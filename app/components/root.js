@@ -1,9 +1,10 @@
 import React from 'react';
 import CandiesList from './CandiesList';
-import { NavLink as Link, Route, Switch, withRouter } from 'react-router-dom';
 import SingleCandyView from './SingleCandyView';
 import Home from './Home';
 import NewCandy from './NewCandy';
+import Navbar from './Navbar';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCandiesFromDb, createCandy, removeCandy } from '../reducers';
 
@@ -14,21 +15,7 @@ class Root extends React.Component {
    render() {
       return (
          <div>
-            <nav className="navbar navbar-light fixed-top">
-               <h1>Goodie Bag</h1>
-               <div className="router">
-                  <Link exact activeClassName="active" to="/">
-                     Home
-                  </Link>
-                  <Link exact activeClassName="active" to="/candies">
-                     Candies
-                  </Link>
-                  <Link activeClassName="active" to="/candies/new">
-                     Add a Candy
-                  </Link>
-               </div>
-            </nav>
-
+            <Navbar />>
             <main>
                <div className="overlay" />
                <Switch>

@@ -6,6 +6,7 @@ import { updateDb, INCREMENT, DECREMENT } from '../reducers';
 
 const SingleCandyView = props => {
    const candy = props.candies.find(
+      // eslint-disable-next-line radix
       myCandy => myCandy.id === parseInt(props.match.params.id),
    );
    if (candy) {

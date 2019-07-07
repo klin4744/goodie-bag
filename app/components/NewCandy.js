@@ -58,11 +58,7 @@ export default class NewCandy extends Component {
             <form className="mt-5 mx-auto w-85 " onSubmit={this.handleSubmit}>
                <h1 className="m-4">Add to goodie bag</h1>
                <div className="form-group w-100 row">
-                  <label
-                     className="col-sm-2"
-                     htmlFor="name"
-                     className="col-sm-2"
-                  >
+                  <label className="col-sm-2" htmlFor="name">
                      Candy Name
                   </label>
                   <input
