@@ -10,7 +10,7 @@ const SingleCandyView = props => {
    );
    if (candy) {
       return (
-         <div className="single-candy-view">
+         <div className="single-candy-view mt-5">
             <div>
                <img src={candy.imageUrl} />
             </div>
@@ -22,13 +22,13 @@ const SingleCandyView = props => {
                </h3>
                <p>{candy.description}</p>
                <button
-                  className="btn"
+                  className="btn btn-primary"
                   onClick={() => props.updateDb(candy, INCREMENT)}
                >
                   Increment Quantity
                </button>
                <button
-                  className="btn-red"
+                  className="btn btn-danger"
                   onClick={() => props.updateDb(candy, DECREMENT)}
                >
                   Decrement Quantity

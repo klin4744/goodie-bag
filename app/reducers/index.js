@@ -5,6 +5,24 @@ const GOT_CANDIES = 'GOT_CANDIES';
 export const DECREMENT = 'DECREMENT';
 export const INCREMENT = 'INCREMENT';
 const UPDATE_ENTRY = 'UPDATE_ENTRY';
+const CREATE_CANDY = 'CREATE_CANDY';
+const REMOVE_CANDY = 'REMOVE_CANDY';
+
+export const removeCandy = candy => {
+   return async function(dispatch) {
+      await axios.delete(`/api/candies/${candy.id}`);
+      dispatch({ type: REMOVE_CANDY, candy });
+   };
+};
+
+export const createCandy = candy => {
+   return async function(dispatch) {
+      console.log(candy);
+      const { data: createdCandy } = await axios.post('/api/candies', candy);
+      console.log(createCandy);
+      dispatch({ type: CREATE_CANDY, candy: createdCandy });
+   };
+};
 
 export const updateDb = (candy, type) => {
    return async function(dispatch, getState) {
@@ -56,6 +74,15 @@ export const getCandiesFromDb = () => {
 
 const rootReducer = (state = initialState, action) => {
    switch (action.type) {
+      case REMOVE_CANDY:
+         return {
+            ...state,
+            candies: state.candies.filter(
+               candy => candy.id !== action.candy.id,
+            ),
+         };
+      case CREATE_CANDY:
+         return { ...state, candies: [...state.candies, action.candy] };
       case UPDATE_ENTRY: {
          return {
             ...state,

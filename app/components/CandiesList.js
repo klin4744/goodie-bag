@@ -7,7 +7,11 @@ function CandiesList(props) {
    return (
       <div>
          {props.candies.map(candy => (
-            <Candy candy={candy} key={candy.id} />
+            <Candy
+               candy={candy}
+               key={candy.id}
+               removeCandy={props.removeCandy}
+            />
          ))}
       </div>
    );
