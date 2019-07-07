@@ -4,34 +4,119 @@
  */
 
 * {
-  box-sizing: border-box;
-  font-family: arial, sans-serif;
+   box-sizing: border-box;
+   font-family: arial, sans-serif;
 }
 
 body::after {
-  content: "";
-  background: url('bg.jpg');
-  opacity: 0.1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
+   content: '';
+   background: url('bg.jpg');
+   background-size: cover;
+   height: 140vh;
+   background-repeat: repeat;
+   opacity: 0.1;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   position: absolute;
+   z-index: -1;
 }
 
 nav {
-  align-items: center;
-  background-color: #333333;
-  color: #c0c0c0;
-  display: flex;
-  height: 80px;
-  padding: 10px;
+   align-items: center;
+   background-color: #333333;
+   color: #c0c0c0;
+   display: flex;
+   height: 80px;
+   padding: 10px;
+}
+.router {
+   position: absolute;
+   right: 5%;
+   padding: 2%;
+   letter-spacing: 0.1em;
+}
+nav a,
+nav a:active {
+   color: white;
+   text-decoration: none;
+   margin: 0.5em;
+}
+nav a:hover {
+   border-bottom: solid 2px white;
 }
 
+.active {
+   border-bottom: solid 2px white;
+   font-weight: 600;
+}
+.btn {
+   display: inline-block;
+   border: 2px solid #3d82cc;
+   background-color: #3d82cc;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   width: 50%;
+   text-decoration: none;
+   color: white;
+   margin: 1em;
+   font-size: 1em;
+}
+.btn-red {
+   display: inline-block;
+   border: 2px solid #ce3c3c;
+   background-color: #ce3c3c;
+   text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   width: 50%;
+   text-decoration: none;
+   color: white;
+   margin: 1em;
+   font-size: 1em;
+}
+.btn-red:hover {
+   border: 2px solid white;
+   background-color: #aa0808;
+   color: white;
+}
+.btn:hover {
+   border: 2px solid white;
+   background-color: #0169d8;
+   color: white;
+}
+.btn:active {
+   box-shadow: 1px 1px grey;
+   transform: translateY(1px);
+}
 main {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.candy-container {
+   display: flex;
+   height: 35vh;
+   margin: 10px;
+   text-align: center;
+}
+.candy-container:hover {
+   background-color: #333333;
+   color: white;
+   border-radius: 2em;
+}
+.container {
+   flex: 50%;
+   margin: 1em;
+}
+img {
+   height: 100px;
+   width: 200px;
+}
+.single-candy-view {
+   width: 45%;
+   text-align: center;
 }
