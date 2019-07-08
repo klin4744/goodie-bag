@@ -15,9 +15,9 @@ class Root extends React.Component {
    render() {
       return (
          <div>
-            <Navbar />>
+            <div className="overlay" />
+            <Navbar />
             <main>
-               <div className="overlay" />
                <Switch>
                   <Route
                      exact
