@@ -10,6 +10,7 @@
 body {
    background: url('https://images.unsplash.com/photo-1449970324092-613ea2df94a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2853&q=80');
    background-size: cover;
+   /* font-family: 'Ubuntu', sans-serif; */
 }
 
 body::after {
@@ -31,9 +32,16 @@ main {
    color: white;
    position: relative;
    z-index: 3;
+   animation-name: slidein;
+   animation-duration: 2s;
+   border-radius: 10px;
 }
 .w-85 {
    width: 85%;
+}
+.display-4 {
+   font-style: italic;
+   text-shadow: 2px 2px rgba(245, 196, 237);
 }
 nav {
    align-items: center;
@@ -42,14 +50,6 @@ nav {
    display: flex;
    height: 80px;
    padding: 10px;
-}
-.router {
-   position: absolute;
-   right: 5%;
-   padding: 2%;
-   letter-spacing: 0.1em;
-}
-nav {
    opacity: 0.95;
    position: fixed;
    z-index: 3;
@@ -65,10 +65,19 @@ nav a:hover {
    text-decoration: none;
    border-bottom: solid 2px white;
 }
+.router {
+   position: absolute;
+   right: 5%;
+   padding: 2%;
+   letter-spacing: 0.1em;
+}
+
 .home-display {
    margin-top: 20px;
    position: relative;
    z-index: 3;
+   animation-name: slidein;
+   animation-duration: 2s;
 }
 
 .active {
@@ -96,6 +105,8 @@ main {
    box-shadow: 10px 10px rgba(245, 196, 237, 0.9);
    border-radius: 2em;
    color: white;
+   animation-name: falldown;
+   animation-duration: 1s;
 }
 .candy-container:hover {
    background-color: white;
@@ -106,9 +117,31 @@ main {
    flex: 50%;
    margin: 1em;
 }
+.btn {
+   box-shadow: 2px 2px rgba(245, 196, 237, 0.9);
+}
+.btn-pink {
+   background-color: rgb(236, 101, 214);
+   box-shadow: 2px 2px rgba(245, 196, 237, 0.9);
+   color: white;
+   border: white 2px;
+}
+.btn:active {
+   transform: translateY(2px);
+   box-shadow: 1px 1px rgba(245, 196, 237, 0.9);
+}
+.btn-pink:hover {
+   background-color: rgb(201, 69, 179);
+}
 img {
    height: 100px;
    width: 200px;
+}
+.btn-outline-light:hover,
+.btn-light,
+.btn-light:disabled,
+.btn-light:hover {
+   color: rgba(236, 146, 221);
 }
 .single-candy-view {
    width: 45%;
@@ -130,4 +163,23 @@ img {
    width: 100%;
    height: 100vh;
    z-index: 2;
+}
+@keyframes slidein {
+   0% {
+      right: 100%;
+   }
+   70% {
+      right: -10%;
+   }
+   100% {
+      right: 0%;
+   }
+}
+@keyframes falldown {
+   0% {
+      transform: translateY(-100%);
+   }
+   100% {
+      transform: translateY(0%);
+   }
 }

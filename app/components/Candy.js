@@ -14,7 +14,7 @@ export default function Candy(props) {
             <div className="row mt-3">
                <div className="col-sm-6">
                   <Link
-                     className="btn btn-block btn-primary"
+                     className="btn btn-block btn-primary btn-pink"
                      to={`/candies/${props.candy.id}`}
                   >
                      Select

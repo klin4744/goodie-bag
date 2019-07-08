@@ -8,6 +8,28 @@ const UPDATE_ENTRY = 'UPDATE_ENTRY';
 const CREATE_CANDY = 'CREATE_CANDY';
 const REMOVE_CANDY = 'REMOVE_CANDY';
 
+// Action creators
+export const increment = id => {
+   return {
+      type: INCREMENT,
+      id,
+   };
+};
+export const decrement = id => {
+   return {
+      type: DECREMENT,
+      id,
+   };
+};
+
+const getCandies = candies => {
+   return {
+      type: GOT_CANDIES,
+      candies,
+   };
+};
+
+// Thunks
 export const removeCandy = candy => {
    return async function(dispatch) {
       await axios.delete(`/api/candies/${candy.id}`);
@@ -43,33 +65,16 @@ export const updateDb = (candy, type) => {
       }
    };
 };
-export const increment = id => {
-   return {
-      type: INCREMENT,
-      id,
-   };
-};
-export const decrement = id => {
-   return {
-      type: DECREMENT,
-      id,
-   };
-};
-
-const initialState = {
-   candies: [],
-};
-const getCandies = candies => {
-   return {
-      type: GOT_CANDIES,
-      candies,
-   };
-};
 export const getCandiesFromDb = () => {
    return async function(dispatch, getState) {
       const { data } = await axios.get('/api/candies');
       dispatch(getCandies(data));
    };
+};
+
+// Initial state
+const initialState = {
+   candies: [],
 };
 
 const rootReducer = (state = initialState, action) => {

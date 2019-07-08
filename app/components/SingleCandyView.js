@@ -19,21 +19,27 @@ const SingleCandyView = props => {
                <h1>{candy.name}</h1>
                <h3>
                   Quantity:
-                  {candy.quantity}
+                  {' ' + candy.quantity}
                </h3>
                <p>{candy.description}</p>
-               <button
-                  className="btn btn-primary"
-                  onClick={() => props.updateDb(candy, INCREMENT)}
-               >
-                  Increment Quantity
-               </button>
-               <button
-                  className="btn btn-danger"
-                  onClick={() => props.updateDb(candy, DECREMENT)}
-               >
-                  Decrement Quantity
-               </button>
+               <div className="row">
+                  <div className="col-sm-6">
+                     <button
+                        className="btn btn-primary btn-pink"
+                        onClick={() => props.updateDb(candy, INCREMENT)}
+                     >
+                        Increment Quantity
+                     </button>
+                  </div>
+                  <div className="col-sm-6">
+                     <button
+                        className="btn btn-danger"
+                        onClick={() => props.updateDb(candy, DECREMENT)}
+                     >
+                        Decrement Quantity
+                     </button>
+                  </div>
+               </div>
             </div>
          </div>
       );
