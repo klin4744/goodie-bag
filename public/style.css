@@ -122,7 +122,7 @@ img {
    z-index: 3;
 }
 .overlay {
-   background-color: #fff;
+   background-color: rgb(238, 215, 240);
    opacity: 0.5;
    position: fixed;
    top: 0;
